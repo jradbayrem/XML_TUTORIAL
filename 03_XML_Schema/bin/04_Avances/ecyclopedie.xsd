@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+
+	<!-- Groupes d'éléments -->
+	<xsd:group name="personneInfo">
+		<xsd:sequence>
+			<xsd:element name="nom" type="xsd:string" />
+			<xsd:element name="prenom" type="xsd:string" />
+			<xsd:element name="age" type="ageType" />
+			<xsd:element name="adresse" type="adresseType" />
+			<xsd:element name="salaire" type="salaireType" />
+		</xsd:sequence>
+	</xsd:group>
+
+	<!-- Groupes d'attributs -->
+	<xsd:attributeGroup name="personneAtrrubuts">
+		<xsd:attribute name="id" type="xsd:ID" use="required" />
+		<xsd:attribute name="sexe" type="sexeType" />
+	</xsd:attributeGroup>
+
+
+	<!-- Defintinion des types simples -->
+	<xsd:simpleType name="ageType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-9]{2}" />
+			<xsd:maxInclusive value="90"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="sexeType">
+		<xsd:restriction base="xsd:string">
+			<!-- maxExclusive, pattern, minInclusive, length, maxLength -->
+			<xsd:enumeration value="H" />
+			<xsd:enumeration value="F" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- Types complexes à contenu simple -->
+
+	<xsd:complexType name="salaireType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:float">
+				<xsd:attribute name="unite" type="xsd:string" use="required"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+
+	<!-- Types complexes à contenu complexe -->
+	<xsd:complexType name="adresseType" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="ville" type="xsd:string" />
+			<xsd:element name="pays" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="personnetype">
+		<xsd:group ref="personneInfo" />
+		<xsd:attributeGroup ref="personneAtrrubuts" />
+	</xsd:complexType>
+	
+	
+	<xsd:element name="personne" type="personnetype" />
+	
+	
+	<xsd:complexType name="ecyclopedieType">
+		<xsd:sequence>
+			<xsd:element ref="personne" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<!-- L'element racine -->
+	<xsd:element name="ecyclopedie" type="ecyclopedieType" />
+
+
+
+</xsd:schema>

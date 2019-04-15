@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT encyclopedie     (personne*)>
+<!ELEMENT personne  (nom,prenom,publication+,img?)>
+<!ELEMENT nom       (#PCDATA)>
+<!ELEMENT prenom    (#PCDATA)>
+<!ELEMENT publication (#PCDATA)>
+<!ELEMENT img EMPTY>
+<!ATTLIST personne sexe (H | F) #IMPLIED>
+<!ATTLIST personne datenaissance CDATA #REQUIRED>
+<!ATTLIST personne id ID #REQUIRED>
+<!ATTLIST personne pere IDREF #IMPLIED>
+<!ATTLIST personne ville CDATA #FIXED "Rabat">

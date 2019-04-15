@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/monSchema"
+	xmlns:tns="http://www.example.org/monSchema" elementFormDefault="qualified">
+
+	<!-- Tout élément du langage XML Schema doit être préfixé par xsd: -->
+	<!-- Les éléments d'un Schéma XML peuvent être de type simple ou complexe. -->
+
+	
+
+	
+	
+	<!-- Déclaration d'éléments vides avec attribut (Un attribut est optionnel par défaut.)-->
+	<xsd:element name="personne" type="personneInfo" />
+	<xsd:complexType name="personneInfo">
+	<!-- Déclaration d'éléments simples -->
+	<xsd:element name="note" type="xsd:float">
+	<!-- Déclaration d'éléments vides -->
+	<xsd:element name="vide" type="xsd:anyType" />
+		<xsd:attribute name="nom" type="xsd:string" use="required"/>
+		<xsd:attribute name="prenom" type="xsd:string" />
+	</xsd:complexType>
+	
+	
+</schema>

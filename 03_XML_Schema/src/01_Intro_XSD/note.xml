@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<note xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"
+	xsi:noNamespaceSchemaLocation="note.xsd">
+	<!-- On fait référence au schéma dans le document XML en utilisant l'attribut noNamespaceSchemaLocation -->
+	16.5
+</note>

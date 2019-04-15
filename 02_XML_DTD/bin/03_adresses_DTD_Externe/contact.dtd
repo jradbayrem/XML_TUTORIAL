@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<!-- Sequences -->
+	<!ELEMENT contact (name, location, phone)>
+	
+	<!-- choix  -->
+	<!ELEMENT location(adress | GPS)>
+	
+	<!-- combiner sequence et choix -->
+	<!ELEMENT location(adress | (latitude,longitude))>
+	
+	<!-- contenu mixte : PCDATA parsed Character DATA -->
+	<!ELEMENT adresse (#PCDATA)>
+	
+	<!ELEMENT description (#PCDATA | title | detail)*>
+	<description>
+		joe est l'auteur du livre 
+		<title>Apprendre le XML<title>
+		il est a la 
+		<detail>5eme edition</detail>
+	</description>
+	
+	<!-- element vide : <br> du xhtml-->
+	<!ELEMENT br EMPTY>
+	
+	<!-- Any Content -->
+	<!ELEMENT description ANY>
+	
+	<!-- Les cardinalités  -->
+	[none] ------ 1-1
+	  *    ------ 0 - *
+	  ?    ------ 0 - 1
+	  +    ------ 1 - *
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

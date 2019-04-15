@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="encyclopedie">
+		<complexType>
+			<sequence>
+				<element name="personne" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+
+						<!-- sequence définit une liste ordonnée -->
+						<!-- choix choice; liste desordonée all -->
+						<sequence>
+							<element name="nom" type="string" />
+							<element name="prenom" type="string" />
+							<element name="publication" type="nonNegativeInteger" minOccurs="1" />
+
+							<!-- élément vide avec attributs -->
+							<element name="img" minOccurs="0">
+								<complexType>
+									<attribute name="src" type="anyURI" use="required" />
+									<!-- optional, fixed, default -->
+								</complexType>
+							</element>
+						</sequence>
+						<attribute name="dn" type="date" />
+						<attribute name="id" type="ID" use="required" />
+						<attribute name="ville" type="string" fixed="Nantes" use="optional" />
+							
+						<attribute name="pere" type="IDREF" use="optional" />
+						
+						<attribute name="sexe">
+							<simpleType>
+								<restriction base="string">
+								<!-- maxExclusive, pattern, minInclusive, length, maxLength -->
+									<enumeration value="H"/>
+									<enumeration value="F"/>
+								</restriction>
+							</simpleType>
+						</attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

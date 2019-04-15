@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name='pays' type='PaysType' />
+	<xsd:complexType name = "PaysType">
+		<xsd:sequence>
+			<xsd:element name="region" type="RegionType" maxOccurs='22' />
+		</xsd:sequence>
+		<xsd:attribute name="nom" type="xsd:string" />
+		<xsd:attribute name="capitale" type="xsd:string" />
+	</xsd:complexType>
+	<xsd:complexType name="RegionType">
+			<xsd:attribute name="nom" type="xsd:string" />
+			<xsd:attribute name="num" type="xsd:positiveInteger" />
+	</xsd:complexType>
+</xsd:schema>

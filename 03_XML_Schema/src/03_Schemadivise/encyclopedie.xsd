@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/encyclopedie"
+	xmlns:enc="http://www.example.org/encyclopedie" elementFormDefault="qualified">
+
+	<!-- les elements de type simple -->
+	<element name="nom" type="string" />
+	<element name="prenom" type="string" />
+	<element name="publication" type="nonNegativeInteger" />
+
+	<!-- les elements de type complexe -->
+	<element name="image" type="enc:imgeType" />
+	<element name="personne" type="enc:personnetype" />
+
+
+	<!-- Defintinion des types simples -->
+	<simpleType name="sexeType">
+		<restriction base="string">
+			<!-- maxExclusive, pattern, minInclusive, length, maxLength -->
+			<enumeration value="H" />
+			<enumeration value="F" />
+		</restriction>
+	</simpleType>
+
+	<!-- Defintinion des types complexes -->
+	<complexType name="imgeType">
+		<attribute name="src" type="anyURI" use="required" />
+	</complexType>
+
+
+	<complexType name="personnetype">
+		<sequence>
+			<element ref="enc:nom" />
+			<element ref="enc:prenom" />
+			<element ref="enc:publication" minOccurs="1" />
+			<element ref="enc:image" minOccurs="0" />
+		</sequence>
+		<attribute name="dn" type="date" />
+		<attribute name="id" type="ID" use="required" />
+		<attribute name="ville" type="string" fixed="Nantes" use="optional" />
+		<attribute name="pere" type="IDREF" use="optional" />
+		<attribute name="sexe" type="enc:sexeType" />
+	</complexType>
+
+	<complexType name="ecyclopedieType">
+		<sequence>
+			<element ref="enc:personne" minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<!-- L'element racine -->
+	<element name="ecyclopedie" type="enc:ecyclopedieType" />
+
+
+</schema>

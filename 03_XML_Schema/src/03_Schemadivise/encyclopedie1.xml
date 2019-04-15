@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecyclopedie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="encyclopedie1.xsd">
+	<personne id="ddd" dn="2006-12-02" sexe="H" ville="Nantes">
+		<nom>NOMANE</nom>
+		<prenom>BOULMERDJ</prenom>
+		<publication>0</publication>
+		<image src="http://www.fsr.ac.ma/faculte.png" />
+	</personne>
+
+	<personne id="dd" dn="2006-12-02" sexe="H" pere="ddd">
+		<prenom>TITI</prenom>
+		<publication>1</publication>
+		<nom>TOTO</nom>
+	</personne>
+</ecyclopedie>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecyclopedie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ecyclopedie.xsd">
+	<personne id="irrr" sexe="H">
+		<nom>BOULMERDJ</nom>
+		<prenom>NOMANE</prenom>
+		<age>89</age>
+		<adresse>
+			l'adresse:
+			<ville>KHERATA</ville>
+			un point perdu en
+			<pays>Algerie</pays>
+		</adresse>
+		<salaire unite="euro">2000</salaire>
+	</personne>
+
+</ecyclopedie>
